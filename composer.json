@@ -1,0 +1,46 @@
+{
+    "name": "denpaw/laravel-playcoinrpc",
+    "type": "library",
+    "description": "Playcoin JSON-RPC Service Provider for Laravel",
+    "keywords": ["laravel","playcoin","api","jsonrpc","guzzle"],
+    "homepage": "https://github.com/denpawmusic/laravel-playcoinrpc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Paavilainen",
+            "email": "denpaw@netfleet.space",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "denpaw/php-playcoinrpc": ">=2.1.2 <2.2"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0 | 4.x | 5.x"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Denpaw\\Playcoin\\": "src/"
+        },
+        "classmap" : [
+            "tests"
+        ],
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "suggest": {
+        "denpaw/laravel-zeromq": "Required to subscribe to zeromq broadcasts."
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Denpaw\\Playcoin\\Providers\\ServiceProvider"
+            ],
+            "aliases": {
+                "Playcoind": "Denpaw\\Playcoin\\Facades\\Playcoind"
+            }
+        }
+    }
+}
